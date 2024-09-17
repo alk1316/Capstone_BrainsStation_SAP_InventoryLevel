@@ -57,6 +57,127 @@ FROM
     "OPR1" T0;  -- Opportunity Stages Tab
 ```
 ## Data Dictionary
+
+<table>
+    <thead>
+        <tr>
+            <th>Table</th>
+            <th>Field Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>OpprId</strong></td>
+            <td>Opportunity ID</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>CardCode</strong></td>
+            <td>Customer/Lead Code</td>
+        </tr>
+        <tr>
+            <td><strong>OCRD</strong></td>
+            <td><strong>GroupCode</strong></td>
+            <td>Customer/Lead Group Code</td>
+        </tr>
+        <tr>
+            <td><strong>OCRG</strong></td>
+            <td><strong>GroupName</strong></td>
+            <td>Customer/Lead Group Name</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>CreateDate</strong></td>
+            <td>Opportunity Creation Date</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>OpenDate</strong></td>
+            <td>Opportunity Start Date</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>CloseDate</strong></td>
+            <td>Opportunity Closing Date</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>PredDate</strong></td>
+            <td>Predicted Closing Date</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>MaxSumLoc</strong></td>
+            <td>Opportunity Potential Amount</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>IntRate</strong></td>
+            <td>Interest Level (3=Low, 2=Medium, 1=High, -1=NoInterestLevel)</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>SlpCode</strong></td>
+            <td>Main Sales Employee Code</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>Industry</strong></td>
+            <td>Customer Industry</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>Source</strong></td>
+            <td>Opportunity Source</td>
+        </tr>
+        <tr>
+            <td><strong>OOPR</strong></td>
+            <td><strong>Status</strong></td>
+            <td>Opportunity Status (O=Open, W=Win, L=Lost)</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>OpprId</strong></td>
+            <td>Opportunity ID (Stage Table)</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>OpenDate</strong></td>
+            <td>Stage Start Date</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>CloseDate</strong></td>
+            <td>Stage Closing Date</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>Step_Id</strong></td>
+            <td>Stage Key</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>ClosePrcnt</strong></td>
+            <td>Percentage Rate (Progress of each stage)</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>MaxSumLoc</strong></td>
+            <td>Potential Amount (Same as in header table)</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>WtSumLoc</strong></td>
+            <td>Weighted Amount (Potential Amount by Percentage Rate)</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
 <table>
     <thead>
         <tr>
