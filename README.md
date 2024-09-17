@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-<h1>Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One</h1>
+<h1>Optimizing Sales Opportunity Management with Machine Learning for ERP SAP Business One</h1>
 <h2>BrainStation Capstone Project</h2>
 <div><img src="/notebooks/Assets/img/BrainStation_Main_Logo.png" width=""></div>
 <br/>
@@ -9,7 +9,7 @@
 
 </div>
 <br/>
-
+<h2>Index</h2>
   <ol>
     <li><a href="#projectoverview">Project Overview</a></li>
     <li><a href="#problemstatement">Problem Statement</a></li>
