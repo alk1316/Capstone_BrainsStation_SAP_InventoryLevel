@@ -11,10 +11,11 @@ Model Improvement: Incorporate a decay model to weigh variables such as time sin
 Provide actionable insights to sales teams based on the model’s output.
 ## Dataset
 
-The dataset consists of sales opportunities data from SAP Business One. The following query extracts the required information from the system:
+The dataset consists of sales opportunities data from SAP Business One USA Demo Database. The following query extracts the required information from the system:
 
 sql
 Copy code
+
 -- TABLE OOPR Opportunity Header
 SELECT 
     T0."OpprId",  -- Opportunity Id
@@ -42,28 +43,30 @@ WHERE
 
 ## Feature Engineering
 The key variables used in this model are:
-
-OpprId: Unique identifier for each opportunity.
-CardCode: Customer or lead code.
-CreateDate: Date when the opportunity was created.
-OpenDate: The start date of the opportunity.
-CloseDate: The actual closing date.
-PredDate: Predicted closing date.
-MaxSumLoc: Potential amount for the opportunity.
-IntRate: Interest level of the opportunity.
-SlpCode: Sales representative assigned to the opportunity.
-Industry: Industry category of the customer.
-Status: Current status of the opportunity (Open, Won, or Lost).
+<ol>
+***<li>OpprId:*** Unique identifier for each opportunity.</li>
+***<li>CardCode:*** Customer or lead code.</li>
+***<li>CreateDate:*** Date when the opportunity was created.</li>
+***<li>OpenDate:*** The start date of the opportunity.</li>
+***<li>CloseDate:*** The actual closing date.</li>
+***<li>PredDate:*** Predicted closing date.</li>
+***<li>MaxSumLoc:*** Potential amount for the opportunity.</li>
+***<li>IntRate:*** Interest level of the opportunity.</li>
+***<li>SlpCode:*** Sales representative assigned to the opportunity.</li>
+***<li>Industry:*** Industry category of the customer.</li>
+***<li>Status:*** Current status of the opportunity (Open, Won, or Lost).</li>
+</ol>
 
 ## Modeling Approach
-Logistic Regression (Initial Phase)
+### Logistic Regression (Initial Phase)
 
-Objective: Predict whether an opportunity will be won or lost.
-Steps:
+***<li>Objective:*** Predict whether an opportunity will be won or lost.</li>
+***Steps:***
 Preprocess the dataset: handle missing values, normalize data, and encode categorical variables.
 Train and validate the logistic regression model using key features such as opportunity creation date, interest level, and predicted close date.
 Evaluate the model using metrics like accuracy, precision, recall, and F1 score.
-Decay Model (Improvement Phase)
+
+### Decay Model (Improvement Phase)
 
 Objective: Improve the predictions by weighting key features (e.g., time since last interaction) with a decay function.
 Steps:
