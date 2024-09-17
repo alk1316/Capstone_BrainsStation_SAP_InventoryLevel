@@ -1,6 +1,7 @@
 <a name="readme-top"></a>
+<br />
 <div align="center">
-# Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One
+<h1>Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One</h1>
 </div>
 
   <ol>
@@ -22,6 +23,7 @@
 
 <h2 id="projectoverview">Project Overview</h2>
 This project aims to predict the sales opportunities most likely to be lost in SAP Business One, helping sales teams prioritize their efforts more effectively. Initially, a Logistic Regression model will be used to predict the success or failure of opportunities. In later phases, a decay model will be implemented to improve the predictions by accounting for factors like time without interaction.
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="problemstatement">Problem Statement</h2>
 Sales representatives often lose track of opportunities that remain open for extended periods, which increases the likelihood of them being lost. This project seeks to solve the issue by predicting which opportunities have a higher probability of failure, enabling sales teams to take preventive action.
