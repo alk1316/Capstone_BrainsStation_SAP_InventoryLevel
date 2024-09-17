@@ -2,6 +2,9 @@
 <br />
 <div align="center">
 <h1>Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One</h1>
+<h2>BrainStation Capstone Project</h2>
+<img src="/notebooks/Assets/img/BrainStation_Logo.png" width="">
+<img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width="">
 </div>
 
   <ol>
@@ -76,11 +79,13 @@ SELECT
     T0."OpenDate", -- Stage Start Date
     T0."CloseDate", -- Stage Closing Date
     T0."Step_Id",   -- Stage Key
+	T1."Descript",   -- Stage Name
     T0."ClosePrcnt",  -- Percentage Rate; percentage associated with the progress of each stage
     T0."MaxSumLoc",  -- Potential Amount; Potencial Amount the same in header table
     T0."WtSumLoc"  -- Weighted Amount; Potencial Amount by Percentage Rate
 FROM 
-    "OPR1" T0;  -- Opportunity Stages Tab
+    "OPR1" T0  -- Opportunity Stages Tab
+INNER JOIN "OOST" T1 ON T0."Step_Id" = T1."Num";  -- Join Stage Name
 ```
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,6 +189,11 @@ FROM
             <td><strong>OPR1</strong></td>
             <td><strong>Step_Id</strong></td>
             <td>Stage Key</td>
+        </tr>
+        <tr>
+            <td><strong>OPR1</strong></td>
+            <td><strong>Descript</strong></td>
+            <td>Stage Name</td>
         </tr>
         <tr>
             <td><strong>OPR1</strong></td>
