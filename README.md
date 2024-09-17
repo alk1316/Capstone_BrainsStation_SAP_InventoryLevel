@@ -13,10 +13,10 @@ Provide actionable insights to sales teams based on the model’s output.
 
 The dataset consists of sales opportunities data from SAP Business One USA Demo Database. The following query extracts the required information from the system:
 
-sql
+sql - HANA database
 Copy code
 
-***Table OOPR Opportunity Header:***
+**Table OOPR Opportunity Header:**
 ```
 SELECT 
     T0."OpprId",  -- Opportunity Id
@@ -46,17 +46,17 @@ WHERE
 ## Feature Engineering
 The key variables used in this model are:
 
-***<li>OpprId:*** Unique identifier for each opportunity.</li>
-***<li>CardCode:*** Customer or lead code.</li>
-***<li>CreateDate:*** Date when the opportunity was created.</li>
-***<li>OpenDate:*** The start date of the opportunity.</li>
-***<li>CloseDate:*** The actual closing date.</li>
-***<li>PredDate:*** Predicted closing date.</li>
-***<li>MaxSumLoc:*** Potential amount for the opportunity.</li>
-***<li>IntRate:*** Interest level of the opportunity.</li>
-***<li>SlpCode:*** Sales representative assigned to the opportunity.</li>
-***<li>Industry:*** Industry category of the customer.</li>
-***<li>Status:*** Current status of the opportunity (Open, Won, or Lost).</li>
+**<li>OpprId:** Unique identifier for each opportunity.</li>
+**<li>CardCode:** Customer or lead code.</li>
+**<li>CreateDate:** Date when the opportunity was created.</li>
+**<li>OpenDate:** The start date of the opportunity.</li>
+**<li>CloseDate:** The actual closing date.</li>
+**<li>PredDate:** Predicted closing date.</li>
+**<li>MaxSumLoc:** Potential amount for the opportunity.</li>
+**<li>IntRate:** Interest level of the opportunity.</li>
+**<li>SlpCode:** Sales representative assigned to the opportunity.</li>
+**<li>Industry:** Industry category of the customer.</li>
+**<li>Status:** Current status of the opportunity (Open, Won, or Lost).</li>
 
 
 ## Modeling Approach
@@ -102,9 +102,10 @@ pip install -r requirements.txt
 4. Future Work: Implement the decay model and integrate it with the logistic regression model.
 
 ## Future Enhancements
-Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
-Apply the decay model to weigh variables like time since last interaction and opportunity amount to refine predictions.
-Deploy the model as a service to be used in production environments for real-time predictions.
+- Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
+- Apply the decay model to weigh variables like time since last interaction and opportunity amount to refine predictions.
+- Sentiment Analysis: SAP Business One includes a field for comments, where sales reps log their interactions with clients. In the future, I plan to analyze the sentiment of these comments using a sentiment analysis model. By incorporating this sentiment data into the prediction process, the model could better assess the likelihood of closing or losing an opportunity based on the tone and content of sales interactions.
+- Deploy the model as a service to be used in production environments for real-time predictions.
 
 ## Conclusion
 This project provides an initial machine learning model to predict the probability of success or loss of sales opportunities in SAP Business One. With the planned improvements using decay models, this solution will help sales teams optimize their opportunity management processes and take preventive action to reduce the risk of losing valuable leads.
