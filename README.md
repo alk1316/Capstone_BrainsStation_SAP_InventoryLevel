@@ -1,15 +1,37 @@
+<a name="readme-top"></a>
+<div align="center">
 # Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One
-## Project Overview
+</div>
+
+  <ol>
+    <li><a href="#projectoverview">Project Overview</a></li>
+    <li><a href="#problemstatement">Problem Statement</a></li>
+    <li><a href="#objectives">Objectives</a></li>
+    <li><a href="#dataset">Dataset</a></li>
+    <li><a href="#datadictionary">Data Dictionary</a></li>
+    <li><a href="#fetureengineering">Feture Engineering</a></li>
+    <li><a href="#modelingapproach">Modeling Approach</a></li>
+    <li><a href="#evaluationmetrics">Evaluation Metrics</a></li>
+    <li><a href="#technologiesused">Technologies Used</a></li>
+    <li><a href="#howrunproject">How to Run the Project</a></li>
+    <li><a href="#futureenhancements">Future Enhancements</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+  </details>
+  <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<h2 id="projectoverview">Project Overview</h2>
 This project aims to predict the sales opportunities most likely to be lost in SAP Business One, helping sales teams prioritize their efforts more effectively. Initially, a Logistic Regression model will be used to predict the success or failure of opportunities. In later phases, a decay model will be implemented to improve the predictions by accounting for factors like time without interaction.
 
-## Problem Statement
+<h2 id="problemstatement">Problem Statement</h2>
 Sales representatives often lose track of opportunities that remain open for extended periods, which increases the likelihood of them being lost. This project seeks to solve the issue by predicting which opportunities have a higher probability of failure, enabling sales teams to take preventive action.
 
-## Objectives
+<h2 id="objectives">Objectives</h2>
 Initial Model: Use a Logistic Regression model to predict whether an opportunity will be won or lost.
 Model Improvement: Incorporate a decay model to weigh variables such as time since last interaction, number of quotes, and opportunity amount.
 Provide actionable insights to sales teams based on the model’s output.
-## Dataset
+
+<h2 id="dataset">Dataset</h2>
 
 The dataset consists of sales opportunities data from SAP Business One USA Demo Database. The following query extracts the required information from the system:
 
@@ -56,7 +78,7 @@ SELECT
 FROM 
     "OPR1" T0;  -- Opportunity Stages Tab
 ```
-## Data Dictionary
+<h2 id="datadictionary">Data Dictionary</h2>
 
 <table>
     <thead>
@@ -175,52 +197,7 @@ FROM
     </tbody>
 </table>
 
-
-
-
-<table>
-    <thead>
-        <tr>
-            <th>Table</th>
-            <th>Field Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td><strong>OOPR</strong></td>
-      <td><strong>OpprId</strong></td>
-      <td>Opportunity ID</td>
-    </tr>
-    </tbody>
-    </table>
-
-Table	Field Name	Description
-OOPR	OpprId	Opportunity ID
-OOPR	CardCode	Customer/Lead Code
-OCRD	GroupCode	Customer/Lead Group Code
-OCRG	GroupName	Customer/Lead Group Name
-OOPR	CreateDate	Opportunity Creation Date
-OOPR	OpenDate	Opportunity Start Date
-OOPR	CloseDate	Opportunity Closing Date
-OOPR	PredDate	Predicted Closing Date
-OOPR	MaxSumLoc	Opportunity Potential Amount
-OOPR	IntRate	Interest Level (3=Low, 2=Medium, 1=High, -1=NoInterestLevel)
-OOPR	SlpCode	Main Sales Employee Code
-OOPR	Industry	Customer Industry
-OOPR	Source	Opportunity Source
-OOPR	Status	Opportunity Status (O=Open, W=Win, L=Lost)
-OPR1	OpprId	Opportunity ID (Stage Table)
-OPR1	OpenDate	Stage Start Date
-OPR1	CloseDate	Stage Closing Date
-OPR1	Step_Id	Stage Key
-OPR1	ClosePrcnt	Percentage Rate (Progress of each stage)
-OPR1	MaxSumLoc	Potential Amount (Same as in header table)
-OPR1	WtSumLoc	Weighted Amount (Potential Amount by Percentage Rate)
-
-
-
-## Feature Engineering
+<h2 id="fetureengineering">Feature Engineering</h2>
 The key variables used in this model are:
 
 **<li>OpprId:** Unique identifier for each opportunity.</li>
@@ -236,7 +213,7 @@ The key variables used in this model are:
 **<li>Status:** Current status of the opportunity (Open, Won, or Lost).</li>
 
 
-## Modeling Approach
+<h2 id="modelingapproach">Modeling Approach</h2>
 ### Logistic Regression (Initial Phase)
 
 **<li>Objective:** Predict whether an opportunity will be won or lost.</li>
@@ -253,13 +230,13 @@ The key variables used in this model are:
 <li>Combine the output of the decay model with the logistic regression model to improve predictions.</li>
 <li>Re-evaluate the model performance using the same metrics as the initial phase.</li>
 
-## Evaluation Metrics
+<h2 id="evaluationmetrics">Evaluation Metrics</h2>
 <li>Accuracy: Measures the percentage of correct predictions.</li>
 <li>Precision: The proportion of true positive predictions among all positive predictions.</li>
 <li>Recall: The ability of the model to find all the relevant opportunities.</li>
 <li>F1 Score: The harmonic mean of precision and recall.</li>
 
-## Technologies Used
+<h2 id="technologiesused">Technologies Used</h2>
 <li>Python: For data preprocessing, modeling, and evaluation.</li>
 <li>pandas: For data manipulation.</li>
 <li>matplotlin: For data visualization.</li>
@@ -269,7 +246,7 @@ The key variables used in this model are:
 <li>SQL: For data extraction from the HANA database.</li>
 <li>pyMC (future improvement): For implementing the decay model.</li>
 
-## How to Run the Project
+<h2 id="howrunproject">How to Run the Project</h2>
 1. Clone this repository.
 2. Install the required dependencies:
 ```
@@ -278,11 +255,11 @@ pip install -r requirements.txt
 3. Execute the notebook or script to run the logistic regression model.
 4. Future Work: Implement the decay model and integrate it with the logistic regression model.
 
-## Future Enhancements
+<h2 id="futureenhancements">Future Enhancements</h2>
 - Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
 - Apply the decay model to weigh variables like time since last interaction and opportunity amount to refine predictions.
 - Sentiment Analysis: SAP Business One includes a field for comments, where sales reps log their interactions with clients. In the future, I plan to analyze the sentiment of these comments using a sentiment analysis model. By incorporating this sentiment data into the prediction process, the model could better assess the likelihood of closing or losing an opportunity based on the tone and content of sales interactions.
 - Deploy the model as a service to be used in production environments for real-time predictions.
 
-## Conclusion
+<h2 id="conclusion">Conclusion</h2>
 This project provides an initial machine learning model to predict the probability of success or loss of sales opportunities in SAP Business One. With the planned improvements using decay models, this solution will help sales teams optimize their opportunity management processes and take preventive action to reduce the risk of losing valuable leads.
