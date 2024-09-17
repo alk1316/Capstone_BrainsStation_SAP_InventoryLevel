@@ -57,6 +57,22 @@ FROM
     "OPR1" T0;  -- Opportunity Stages Tab
 ```
 ## Data Dictionary
+<table>
+    <thead>
+        <tr>
+            <th>Table</th>
+            <th>Field Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><strong>OOPR</strong></td>
+      <td><strong>OpprId</strong></td>
+      <td>Opportunity ID</td>
+    </tr>
+    </tbody>
+    </table>
 
 Table	Field Name	Description
 OOPR	OpprId	Opportunity ID
@@ -80,6 +96,7 @@ OPR1	Step_Id	Stage Key
 OPR1	ClosePrcnt	Percentage Rate (Progress of each stage)
 OPR1	MaxSumLoc	Potential Amount (Same as in header table)
 OPR1	WtSumLoc	Weighted Amount (Potential Amount by Percentage Rate)
+
 
 
 ## Feature Engineering
