@@ -1,15 +1,16 @@
-Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One
-Project Overview
+# Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One
+## Project Overview
 This project aims to predict the sales opportunities most likely to be lost in SAP Business One, helping sales teams prioritize their efforts more effectively. Initially, a Logistic Regression model will be used to predict the success or failure of opportunities. In later phases, a decay model will be implemented to improve the predictions by accounting for factors like time without interaction.
 
-Problem Statement
+## Problem Statement
 Sales representatives often lose track of opportunities that remain open for extended periods, which increases the likelihood of them being lost. This project seeks to solve the issue by predicting which opportunities have a higher probability of failure, enabling sales teams to take preventive action.
 
-Objectives
+## Objectives
 Initial Model: Use a Logistic Regression model to predict whether an opportunity will be won or lost.
 Model Improvement: Incorporate a decay model to weigh variables such as time since last interaction, number of quotes, and opportunity amount.
 Provide actionable insights to sales teams based on the model’s output.
-Dataset
+## Dataset
+
 The dataset consists of sales opportunities data from SAP Business One. The following query extracts the required information from the system:
 
 sql
@@ -38,7 +39,8 @@ INNER JOIN
     "OCRG" T2 ON T1."GroupCode" = T2."GroupCode"  -- Customer Group Table
 WHERE 
     T0."OpprType" = 'R';  -- Only Customer Opportunities excluding Vendor Opport.
-Feature Engineering
+
+## Feature Engineering
 The key variables used in this model are:
 
 OpprId: Unique identifier for each opportunity.
@@ -52,7 +54,8 @@ IntRate: Interest level of the opportunity.
 SlpCode: Sales representative assigned to the opportunity.
 Industry: Industry category of the customer.
 Status: Current status of the opportunity (Open, Won, or Lost).
-Modeling Approach
+
+## Modeling Approach
 Logistic Regression (Initial Phase)
 
 Objective: Predict whether an opportunity will be won or lost.
@@ -67,19 +70,22 @@ Steps:
 Implement a decay model (e.g., BTYD model) to measure how time without activity affects the probability of losing an opportunity.
 Combine the output of the decay model with the logistic regression model to improve predictions.
 Re-evaluate the model performance using the same metrics as the initial phase.
-Evaluation Metrics
+
+## Evaluation Metrics
 Accuracy: Measures the percentage of correct predictions.
 Precision: The proportion of true positive predictions among all positive predictions.
 Recall: The ability of the model to find all the relevant opportunities.
 F1 Score: The harmonic mean of precision and recall.
-Technologies Used
+
+## Technologies Used
 Python: For data preprocessing, modeling, and evaluation.
 pandas: For data manipulation.
 scikit-learn: For building and evaluating machine learning models.
 SAP Business One: For sourcing the data.
 SQL: For data extraction from the HANA database.
 pyMC (future improvement): For implementing the decay model.
-How to Run the Project
+
+## How to Run the Project
 Clone this repository.
 Install the required dependencies:
 bash
@@ -87,9 +93,11 @@ Copy code
 pip install -r requirements.txt
 Execute the notebook or script to run the logistic regression model.
 Future Work: Implement the decay model and integrate it with the logistic regression model.
-Future Enhancements
+
+## Future Enhancements
 Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
 Apply the decay model to weigh variables like time since last interaction and opportunity amount to refine predictions.
 Deploy the model as a service to be used in production environments for real-time predictions.
-Conclusion
+
+## Conclusion
 This project provides an initial machine learning model to predict the probability of success or loss of sales opportunities in SAP Business One. With the planned improvements using decay models, this solution will help sales teams optimize their opportunity management processes and take preventive action to reduce the risk of losing valuable leads.
