@@ -43,6 +43,45 @@ WHERE
     T0."OpprType" = 'R';  -- Only Customer Opportunities excluding Vendor Opport.
 ```
 
+**Child Table OPR1 PR Opportunity Header:**
+```
+SELECT 
+    T0."OpprId", -- Opportunity Id
+    T0."OpenDate", -- Stage Start Date
+    T0."CloseDate", -- Stage Closing Date
+    T0."Step_Id",   -- Stage Key
+    T0."ClosePrcnt",  -- Percentage Rate; percentage associated with the progress of each stage
+    T0."MaxSumLoc",  -- Potential Amount; Potencial Amount the same in header table
+    T0."WtSumLoc"  -- Weighted Amount; Potencial Amount by Percentage Rate
+FROM 
+    "OPR1" T0;  -- Opportunity Stages Tab
+```
+## Data Dictionary
+
+Table	Field Name	Description
+OOPR	OpprId	Opportunity ID
+OOPR	CardCode	Customer/Lead Code
+OCRD	GroupCode	Customer/Lead Group Code
+OCRG	GroupName	Customer/Lead Group Name
+OOPR	CreateDate	Opportunity Creation Date
+OOPR	OpenDate	Opportunity Start Date
+OOPR	CloseDate	Opportunity Closing Date
+OOPR	PredDate	Predicted Closing Date
+OOPR	MaxSumLoc	Opportunity Potential Amount
+OOPR	IntRate	Interest Level (3=Low, 2=Medium, 1=High, -1=NoInterestLevel)
+OOPR	SlpCode	Main Sales Employee Code
+OOPR	Industry	Customer Industry
+OOPR	Source	Opportunity Source
+OOPR	Status	Opportunity Status (O=Open, W=Win, L=Lost)
+OPR1	OpprId	Opportunity ID (Stage Table)
+OPR1	OpenDate	Stage Start Date
+OPR1	CloseDate	Stage Closing Date
+OPR1	Step_Id	Stage Key
+OPR1	ClosePrcnt	Percentage Rate (Progress of each stage)
+OPR1	MaxSumLoc	Potential Amount (Same as in header table)
+OPR1	WtSumLoc	Weighted Amount (Potential Amount by Percentage Rate)
+
+
 ## Feature Engineering
 The key variables used in this model are:
 
@@ -62,8 +101,8 @@ The key variables used in this model are:
 ## Modeling Approach
 ### Logistic Regression (Initial Phase)
 
-***<li>Objective:*** Predict whether an opportunity will be won or lost.</li>
-***<li>Steps:***</li>
+**<li>Objective:** Predict whether an opportunity will be won or lost.</li>
+**<li>Steps:**</li>
 <li>Preprocess the dataset: handle missing values, normalize data, and encode categorical variables.</li>
 <li>Train and validate the logistic regression model using key features such as opportunity creation date, interest level, and predicted close date.</li>
 <li>Evaluate the model using metrics like accuracy, precision, recall, and F1 score.</li>
