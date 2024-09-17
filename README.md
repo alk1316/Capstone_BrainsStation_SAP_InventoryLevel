@@ -16,7 +16,8 @@ The dataset consists of sales opportunities data from SAP Business One USA Demo 
 sql
 Copy code
 
--- TABLE OOPR Opportunity Header
+***Table OOPR Opportunity Header:***
+```
 SELECT 
     T0."OpprId",  -- Opportunity Id
     T0."CardCode", -- Customer/Lead Code
@@ -40,6 +41,7 @@ INNER JOIN
     "OCRG" T2 ON T1."GroupCode" = T2."GroupCode"  -- Customer Group Table
 WHERE 
     T0."OpprType" = 'R';  -- Only Customer Opportunities excluding Vendor Opport.
+```
 
 ## Feature Engineering
 The key variables used in this model are:
@@ -68,34 +70,36 @@ The key variables used in this model are:
 
 ### Decay Model (Improvement Phase)
 
-Objective: Improve the predictions by weighting key features (e.g., time since last interaction) with a decay function.
-Steps:
-Implement a decay model (e.g., BTYD model) to measure how time without activity affects the probability of losing an opportunity.
-Combine the output of the decay model with the logistic regression model to improve predictions.
-Re-evaluate the model performance using the same metrics as the initial phase.
+**<li>Objective:**  Improve the predictions by weighting key features (e.g., time since last interaction) with a decay function.</li>
+**<li>Steps:**</li>
+<li>Implement a decay model (e.g., BTYD model) to measure how time without activity affects the probability of losing an opportunity.</li>
+<li>Combine the output of the decay model with the logistic regression model to improve predictions.</li>
+<li>Re-evaluate the model performance using the same metrics as the initial phase.</li>
 
 ## Evaluation Metrics
-Accuracy: Measures the percentage of correct predictions.
-Precision: The proportion of true positive predictions among all positive predictions.
-Recall: The ability of the model to find all the relevant opportunities.
-F1 Score: The harmonic mean of precision and recall.
+<li>Accuracy: Measures the percentage of correct predictions.</li>
+<li>Precision: The proportion of true positive predictions among all positive predictions.</li>
+<li>Recall: The ability of the model to find all the relevant opportunities.</li>
+<li>F1 Score: The harmonic mean of precision and recall.</li>
 
 ## Technologies Used
-Python: For data preprocessing, modeling, and evaluation.
-pandas: For data manipulation.
-scikit-learn: For building and evaluating machine learning models.
-SAP Business One: For sourcing the data.
-SQL: For data extraction from the HANA database.
-pyMC (future improvement): For implementing the decay model.
+<li>Python: For data preprocessing, modeling, and evaluation.</li>
+<li>pandas: For data manipulation.</li>
+<li>matplotlin: For data visualization.</li>
+<li>seaborn: For data visualization.</li>
+<li>scikit-learn: For building and evaluating machine learning models.</li>
+<li>SAP Business One: For sourcing the data.</li>
+<li>SQL: For data extraction from the HANA database.</li>
+<li>pyMC (future improvement): For implementing the decay model.</li>
 
 ## How to Run the Project
-Clone this repository.
-Install the required dependencies:
-bash
-Copy code
+1. Clone this repository.
+2. Install the required dependencies:
+```
 pip install -r requirements.txt
-Execute the notebook or script to run the logistic regression model.
-Future Work: Implement the decay model and integrate it with the logistic regression model.
+```
+3. Execute the notebook or script to run the logistic regression model.
+4. Future Work: Implement the decay model and integrate it with the logistic regression model.
 
 ## Future Enhancements
 Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
