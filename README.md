@@ -3,10 +3,11 @@
 <div align="center">
 <h1>Optimizing Sales Opportunity Management with Machine Learning - for ERP SAP Business One</h1>
 <h2>BrainStation Capstone Project</h2>
-<img src="/notebooks/Assets/img/BrainStation_Logo.png" width="50%">
+<img src="/notebooks/Assets/img/BrainStation_Main_Logo.png" width="">
 <img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width="">
-<br />
+
 </div>
+<br />
 
   <ol>
     <li><a href="#projectoverview">Project Overview</a></li>
