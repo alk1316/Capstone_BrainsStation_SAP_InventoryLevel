@@ -43,7 +43,7 @@ WHERE
 
 ## Feature Engineering
 The key variables used in this model are:
-<ol>
+
 ***<li>OpprId:*** Unique identifier for each opportunity.</li>
 ***<li>CardCode:*** Customer or lead code.</li>
 ***<li>CreateDate:*** Date when the opportunity was created.</li>
@@ -55,16 +55,16 @@ The key variables used in this model are:
 ***<li>SlpCode:*** Sales representative assigned to the opportunity.</li>
 ***<li>Industry:*** Industry category of the customer.</li>
 ***<li>Status:*** Current status of the opportunity (Open, Won, or Lost).</li>
-</ol>
+
 
 ## Modeling Approach
 ### Logistic Regression (Initial Phase)
 
 ***<li>Objective:*** Predict whether an opportunity will be won or lost.</li>
-***Steps:***
-Preprocess the dataset: handle missing values, normalize data, and encode categorical variables.
-Train and validate the logistic regression model using key features such as opportunity creation date, interest level, and predicted close date.
-Evaluate the model using metrics like accuracy, precision, recall, and F1 score.
+***<li>Steps:***</li>
+<li>Preprocess the dataset: handle missing values, normalize data, and encode categorical variables.</li>
+<li>Train and validate the logistic regression model using key features such as opportunity creation date, interest level, and predicted close date.</li>
+<li>Evaluate the model using metrics like accuracy, precision, recall, and F1 score.</li>
 
 ### Decay Model (Improvement Phase)
 
