@@ -8,11 +8,9 @@
 <br/>
 <div><img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width=""></div>
 </div>
-
 <br/>
 
 # Indice
-
 1. [Project Overview](#project-overview)
     - [Introduction](#introduction)
     - [Problem](#problem)
@@ -25,11 +23,9 @@
 4. [Modeling Approach](#modeling-approach)
 5. [How to Run the Project](#how-to-run-the-project)
 6. [Conclusion](#conclusion)
-
-
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Project Overview
+# 1. Project Overview
 
 ## Introduction
 Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
@@ -52,10 +48,9 @@ The lack of accurate demand forecasting can lead to misinformed purchasing and r
 
 ## Expected Outcome:
 By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Dataset
+# 2. Dataset
 
 ## Dataset Gathering
 
@@ -146,35 +141,30 @@ ORDER BY T0."DocNum"
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Feature Engineering
+# 3. Feature Engineering
 EMPTY
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Modeling Approach
+# 4. Modeling Approach
 
 EMPTY
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Future Enhancements
+# 5. Future Enhancements
 
 EMPTY
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
- # How to Run the Project
+ # 6. How to Run the Project
 1. Clone this repository.
 2. Install the required dependencies:
 ```
 pip install -r requirements.txt
 ```
 3. Execute the notebook or script to run the model
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Conclusion
+# 7. Conclusion
 
 EMPTY
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
