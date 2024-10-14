@@ -12,6 +12,7 @@
 <h2>Index</h2>
   <ol>
     <li><a href="#projectoverview">Project Overview</a></li>
+        <li><a href="#projectcontext">Context</a></li>
     <li><a href="#problemstatement">Problem Statement</a></li>
     <li><a href="#objectives">Objectives</a></li>
     <li><a href="#dataset">Dataset</a></li>
@@ -28,15 +29,18 @@
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h1 id="projectoverview">Project Overview</h1>
+
+<h2 id="projectcontext">Context</h2>
+Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
+
 This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
 
 By leveraging ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
 
-By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="problemstatement">Problem Statement</h2>
-Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
+The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="objectives">Objectives</h2>
@@ -52,12 +56,8 @@ Efficient inventory management is a challenge for many businesses, as maintainin
 
 <h2 id="dataset">Dataset</h2>
 
-The dataset consists of sales opportunities data from SAP Business One USA Demo Database. The following query extracts the required information from the system:
+The dataset consists of sales data from the **SAP Business One USA demo database**. Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
 
-sql - HANA database
-Copy code
-
-**Table OOPR Opportunity Header:**
 ```
 SELECT 
     T0."DocEntry",  -- Internal Id Invoice
@@ -145,53 +145,13 @@ ORDER BY T0."DocNum"
 <h2 id="fetureengineering">Feature Engineering</h2>
 The key variables used in this model are:
 
-**<li>OpprId:** Unique identifier for each opportunity.</li>
-**<li>CardCode:** Customer or lead code.</li>
-**<li>CreateDate:** Date when the opportunity was created.</li>
-**<li>OpenDate:** The start date of the opportunity.</li>
-**<li>CloseDate:** The actual closing date.</li>
-**<li>PredDate:** Predicted closing date.</li>
-**<li>MaxSumLoc:** Potential amount for the opportunity.</li>
-**<li>IntRate:** Interest level of the opportunity.</li>
-**<li>SlpCode:** Sales representative assigned to the opportunity.</li>
-**<li>Industry:** Industry category of the customer.</li>
-**<li>Status:** Current status of the opportunity (Open, Won, or Lost).</li>
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="modelingapproach">Modeling Approach</h2>
-### Logistic Regression (Initial Phase)
 
-**<li>Objective:** Predict whether an opportunity will be won or lost.</li>
-**<li>Steps:**</li>
-<li>Preprocess the dataset: handle missing values, normalize data, and encode categorical variables.</li>
-<li>Train and validate the logistic regression model using key features such as opportunity creation date, interest level, and predicted close date.</li>
-<li>Evaluate the model using metrics like accuracy, precision, recall, and F1 score.</li>
+EMPTY
 
-### Decay Model (Improvement Phase)
-
-**<li>Objective:**  Improve the predictions by weighting key features (e.g., time since last interaction) with a decay function.</li>
-**<li>Steps:**</li>
-<li>Implement a decay model (e.g., BTYD model) to measure how time without activity affects the probability of losing an opportunity.</li>
-<li>Combine the output of the decay model with the logistic regression model to improve predictions.</li>
-<li>Re-evaluate the model performance using the same metrics as the initial phase.</li>
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<h2 id="evaluationmetrics">Evaluation Metrics</h2>
-<li>Accuracy: Measures the percentage of correct predictions.</li>
-<li>Precision: The proportion of true positive predictions among all positive predictions.</li>
-<li>Recall: The ability of the model to find all the relevant opportunities.</li>
-<li>F1 Score: The harmonic mean of precision and recall.</li>
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<h2 id="technologiesused">Technologies Used</h2>
-<li>Python: For data preprocessing, modeling, and evaluation.</li>
-<li>pandas: For data manipulation.</li>
-<li>matplotlin: For data visualization.</li>
-<li>seaborn: For data visualization.</li>
-<li>scikit-learn: For building and evaluating machine learning models.</li>
-<li>SAP Business One: For sourcing the data.</li>
-<li>SQL: For data extraction from the HANA database.</li>
-<li>pyMC (future improvement): For implementing the decay model.</li>
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="howrunproject">How to Run the Project</h2>
@@ -200,17 +160,18 @@ The key variables used in this model are:
 ```
 pip install -r requirements.txt
 ```
-3. Execute the notebook or script to run the logistic regression model.
-4. Future Work: Implement the decay model and integrate it with the logistic regression model.
+3. Execute the notebook or script to run the model
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="futureenhancements">Future Enhancements</h2>
-- Implement more advanced machine learning algorithms (e.g., Random Forest, Gradient Boosting) for comparison.
-- Apply the decay model to weigh variables like time since last interaction and opportunity amount to refine predictions.
-- Sentiment Analysis: SAP Business One includes a field for comments, where sales reps log their interactions with clients. In the future, I plan to analyze the sentiment of these comments using a sentiment analysis model. By incorporating this sentiment data into the prediction process, the model could better assess the likelihood of closing or losing an opportunity based on the tone and content of sales interactions.
-- Deploy the model as a service to be used in production environments for real-time predictions.
+
+EMPTY
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="conclusion">Conclusion</h2>
-This project provides an initial machine learning model to predict the probability of success or loss of sales opportunities in SAP Business One. With the planned improvements using decay models, this solution will help sales teams optimize their opportunity management processes and take preventive action to reduce the risk of losing valuable leads.
+
+EMPTY
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
