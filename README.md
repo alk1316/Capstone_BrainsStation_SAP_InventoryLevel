@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-<h1>Optimizing Inventory Level for ERP SAP Business One</h1>
+<h1>Stock Level Prediction Using Sales Data from SAP Business One</h1>
 <h2>BrainStation Capstone Project</h2>
 <br/>
 <div><img src="/notebooks/Assets/img/BrainStation_Main_Logo.png" width=""></div>
@@ -28,17 +28,26 @@
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="projectoverview">Project Overview</h2>
-This project aims to predict the sales opportunities most likely to be lost in SAP Business One, helping sales teams prioritize their efforts more effectively. Initially, a Logistic Regression model will be used to predict the success or failure of opportunities. In later phases, a decay model will be implemented to improve the predictions by accounting for factors like time without interaction.
+This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
+
+By leveraging ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
+
+By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="problemstatement">Problem Statement</h2>
-Sales representatives often lose track of opportunities that remain open for extended periods, which increases the likelihood of them being lost. This project seeks to solve the issue by predicting which opportunities have a higher probability of failure, enabling sales teams to take preventive action.
+Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="objectives">Objectives</h2>
-Initial Model: Use a Logistic Regression model to predict whether an opportunity will be won or lost.
-Model Improvement: Incorporate a decay model to weigh variables such as time since last interaction, number of quotes, and opportunity amount.
-Provide actionable insights to sales teams based on the model’s output.
+1. Data Exploration and Preprocessing: Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
+
+2. Sales Pattern Analysis: Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
+
+3. Model Development: Use machine learning and time-series forecasting techniques to predict future demand and establish optimal stock levels for the business.
+
+4. Evaluation and Optimization: Evaluate the model’s performance using appropriate metrics, refine the model to improve accuracy, and provide actionable insights for stock management.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="dataset">Dataset</h2>
@@ -51,45 +60,51 @@ Copy code
 **Table OOPR Opportunity Header:**
 ```
 SELECT 
-    T0."OpprId",  -- Opportunity Id
-    T0."CardCode", -- Customer/Lead Code
-    T1."GroupCode", -- Customer/Lead Group Code
-    T2."GroupName", -- Customer/Lead Group Name  
-    T0."CreateDate", -- Opportunity Creation Date
-    T0."OpenDate",    -- Opportunity Start Date
-    T0."CloseDate",   -- Opportunity Closing Date
-    T0."PredDate",   -- Predicted Closing Date
-    T0."MaxSumLoc",  -- Opportunity Potential Amount 
-    T0."IntRate",   -- Interest Level (3=Low, 2=Medium, 1=High, -1=NoInterestLevel)
-    T0."SlpCode",  -- Main Sales Emp.
-    T0."Industry",  -- Customer Industry
-    T0."Source",    -- Opportunity Source
-    T0."Status"     -- Status; O=Open, W=Win, L=Lost
-FROM 
-    "OOPR" T0  -- Opportunity Table
-INNER JOIN 
-    "OCRD" T1 ON T0."CardCode" = T1."CardCode"  -- Customer Table
-INNER JOIN 
-    "OCRG" T2 ON T1."GroupCode" = T2."GroupCode"  -- Customer Group Table
+    T0."DocEntry",  -- Internal Id Invoice
+    T0."DocNum",    -- Invoice Number
+    T0."CardCode",  -- Customer Code
+    T0."CardName",  -- Customer Name
+    T2."GroupCode", -- Customer Group Code
+    T4."GroupName", -- Customer Group Name 
+    T2."Country",  -- Customer Country Code
+    T5."Name" "CountryName", -- Customer Country Name
+    T2."State1",  -- Customer State Code
+    T6."Name" "StateName", -- Customer State Name
+    T2."City",   -- Customer City
+    T0."DocDate", -- Invoice Date
+    T0."SlpCode", -- Sale Employee Code
+    T0."DocCur", -- Invoice currency
+    T0."DocRate", -- Invoice currency rate 
+    T0."DocTotal", -- Invoice Total in Main Currency USD
+    T0."DocTotalFC", -- Invoice Total in Foreign Currency
+    T1."ItemCode", -- Item Code
+    T3."ItmsGrpCod", -- Item Group Code
+    T7."ItmsGrpNam", -- Item Group Name
+    T1."Dscription", -- Item Description
+    T1."Quantity", -- Quantity sold
+    T1."WhsCode", -- Warehouse code
+    T1."StockPrice", -- Cost of item in Invoice
+    T1."PriceBefDi", -- Price before discount Invoiced
+    T1."DiscPrcnt",  -- Discount per item in Invoice
+    T1."Price",  -- Price after discount Invoiced
+    T1."LineTotal" -- Total per Line in Main Currency USD (quatity per price after discount)
+
+FROM "OINV" T0
+INNER JOIN "INV1" T1 ON T0."DocEntry" = T1."DocEntry"
+INNER JOIN "OCRD" T2 ON T0."CardCode" = T2."CardCode"
+INNER JOIN "OITM" T3 ON T1."ItemCode" = T3."ItemCode"
+INNER JOIN "OCRG" T4 ON T2."GroupCode" = T4."GroupCode"
+INNER JOIN "OCRY" T5 ON T2."Country" = T5."Code"
+LEFT JOIN "OCST" T6 ON T2."State1" = T6."Code"
+INNER JOIN "OITB" T7 ON T3."ItmsGrpCod" = T7."ItmsGrpCod"
+
 WHERE 
-    T0."OpprType" = 'R';  -- Only Customer Opportunities excluding Vendor Opport.
+    T0."DocType" = 'I' -- Only Item Invoices
+    AND (T0."DocDate" >= '20060101' AND T0."DocDate" <= '20161231') -- Range of data provided by SAP in DEMO DB
+ORDER BY T0."DocNum"
+
 ```
 
-**Child Table OPR1 PR Opportunity Header:**
-```
-SELECT 
-    T0."OpprId", -- Opportunity Id
-    T0."OpenDate", -- Stage Start Date
-    T0."CloseDate", -- Stage Closing Date
-    T0."Step_Id",   -- Stage Key
-	T1."Descript",   -- Stage Name
-    T0."ClosePrcnt",  -- Percentage Rate; percentage associated with the progress of each stage
-    T0."MaxSumLoc",  -- Potential Amount; Potencial Amount the same in header table
-    T0."WtSumLoc"  -- Weighted Amount; Potencial Amount by Percentage Rate
-FROM 
-    "OPR1" T0  -- Opportunity Stages Tab
-INNER JOIN "OOST" T1 ON T0."Step_Id" = T1."Num";  -- Join Stage Name
-```
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="datadictionary">Data Dictionary</h2>
@@ -111,7 +126,7 @@ INNER JOIN "OOST" T1 ON T0."Step_Id" = T1."Num";  -- Join Stage Name
 | `T0."SlpCode"`    | Code that identifies the sales employee responsible for the invoice. This is used for tracking sales by representative. | OINV    |
 | `T0."DocCur"`     | Currency in which the invoice was issued (e.g., USD, EUR), specifying the monetary unit for the transaction. | OINV    |
 | `T0."DocRate"`    | Exchange rate applied if the invoice currency differs from the company’s main currency, showing the conversion factor. | OINV    |
-| `T0."DocTotal"`   | Total amount of the invoice in the company's main currency (usually USD), including all charges and taxes. | OINV    |
+| `T0."DocTotal"`   | Total amount of the invoice in the company's main currency (USD), including all charges and taxes. | OINV    |
 | `T0."DocTotalFC"` | Total amount of the invoice in the foreign currency (if applicable), providing the total cost in the currency used for the transaction. | OINV    |
 | `T1."ItemCode"`   | Code that uniquely identifies the item being sold, as registered in the inventory system.            | INV1    |
 | `T3."ItmsGrpCod"` | Code representing the item group, categorizing items into different segments (e.g., electronics, clothing, etc.). | OITM    |
@@ -125,133 +140,6 @@ INNER JOIN "OOST" T1 ON T0."Step_Id" = T1."Num";  -- Join Stage Name
 | `T1."Price"`      | Final price of the item after the discount is applied. This is the amount that will be invoiced to the customer. | INV1    |
 | `T1."LineTotal"`  | Total amount for the line item in the invoice, calculated as `Quantity * Price`, representing the total charge for that product in the invoice currency. | INV1    |
 
-
-
-
-
-
-
-<table>
-    <thead>
-        <tr>
-            <th>Table</th>
-            <th>Field Name</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>OpprId</strong></td>
-            <td>Opportunity ID</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>CardCode</strong></td>
-            <td>Customer/Lead Code</td>
-        </tr>
-        <tr>
-            <td><strong>OCRD</strong></td>
-            <td><strong>GroupCode</strong></td>
-            <td>Customer/Lead Group Code</td>
-        </tr>
-        <tr>
-            <td><strong>OCRG</strong></td>
-            <td><strong>GroupName</strong></td>
-            <td>Customer/Lead Group Name</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>CreateDate</strong></td>
-            <td>Opportunity Creation Date</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>OpenDate</strong></td>
-            <td>Opportunity Start Date</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>CloseDate</strong></td>
-            <td>Opportunity Closing Date</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>PredDate</strong></td>
-            <td>Predicted Closing Date</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>MaxSumLoc</strong></td>
-            <td>Opportunity Potential Amount</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>IntRate</strong></td>
-            <td>Interest Level (3=Low, 2=Medium, 1=High, -1=NoInterestLevel)</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>SlpCode</strong></td>
-            <td>Main Sales Employee Code</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>Industry</strong></td>
-            <td>Customer Industry</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>Source</strong></td>
-            <td>Opportunity Source</td>
-        </tr>
-        <tr>
-            <td><strong>OOPR</strong></td>
-            <td><strong>Status</strong></td>
-            <td>Opportunity Status (O=Open, W=Win, L=Lost)</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>OpprId</strong></td>
-            <td>Opportunity ID (Stage Table)</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>OpenDate</strong></td>
-            <td>Stage Start Date</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>CloseDate</strong></td>
-            <td>Stage Closing Date</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>Step_Id</strong></td>
-            <td>Stage Key</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>Descript</strong></td>
-            <td>Stage Name</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>ClosePrcnt</strong></td>
-            <td>Percentage Rate (Progress of each stage)</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>MaxSumLoc</strong></td>
-            <td>Potential Amount (Same as in header table)</td>
-        </tr>
-        <tr>
-            <td><strong>OPR1</strong></td>
-            <td><strong>WtSumLoc</strong></td>
-            <td>Weighted Amount (Potential Amount by Percentage Rate)</td>
-        </tr>
-    </tbody>
-</table>
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="fetureengineering">Feature Engineering</h2>
