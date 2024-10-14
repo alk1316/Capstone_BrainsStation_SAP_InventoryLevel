@@ -9,6 +9,9 @@
 <div><img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width=""></div>
 </div>
 <br/>
+
+1. [Project Overview](#projectoverview)
+
 <h2>Index</h2>
   <ol>
     <li><a href="#projectoverview">Project Overview</a></li>
@@ -28,7 +31,7 @@
   </details>
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h1 id="projectoverview">Project Overview</h1>
+# Project Overview
 
 <h2 id="projectcontext">Context</h2>
 Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
