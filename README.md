@@ -8,7 +8,10 @@
 <br/>
 <div><img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width=""></div>
 </div>
+
 <br/>
+
+# Indice
 
 1. [Project Overview](#project-overview)
     - [Introduction](#introduction)
