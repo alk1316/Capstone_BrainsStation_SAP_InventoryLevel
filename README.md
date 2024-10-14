@@ -11,43 +11,34 @@
 <br/>
 
 1. [Project Overview](#project-overview)
+    - [Introduction](#introduction)
+    - [Problem](#problem)
+    - [Objectives](#objectives)
+    - [Expected Outcome](#expected-outcome) 
+2. [Dataset](#dataset)
+    - [Dataset Gathering](#dataset-gathering) 
+    - [Data Dictionary](#data-dictionary) 
+3. [Feature Engineering](#feature-engineering)
+4. [Modeling Approach](#modeling-approach)
+5. [How to Run the Project](#how-to-run-the-project)
+6. [Conclusion](#conclusion)
 
-<h2>Index</h2>
-  <ol>
-    <li><a href="#projectoverview">project-overview</a></li>
-        <li><a href="#projectcontext">Context</a></li>
-    <li><a href="#problemstatement">Problem Statement</a></li>
-    <li><a href="#objectives">Objectives</a></li>
-    <li><a href="#dataset">Dataset</a></li>
-    <li><a href="#datadictionary">Data Dictionary</a></li>
-    <li><a href="#fetureengineering">Feture Engineering</a></li>
-    <li><a href="#modelingapproach">Modeling Approach</a></li>
-    <li><a href="#evaluationmetrics">Evaluation Metrics</a></li>
-    <li><a href="#technologiesused">Technologies Used</a></li>
-    <li><a href="#howrunproject">How to Run the Project</a></li>
-    <li><a href="#futureenhancements">Future Enhancements</a></li>
-    <li><a href="#conclusion">Conclusion</a></li>
-  </ol>
-  </details>
+
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # Project Overview
 
-<h2 id="projectcontext">Context</h2>
+## Introduction
 Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
 
 This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
 
 By leveraging ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
 
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<h2 id="problemstatement">Problem Statement</h2>
+## Problem
 The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="objectives">Objectives</h2>
-
+## Objectives
 1. Data Exploration and Preprocessing: Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
 
 2. Sales Pattern Analysis: Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
@@ -55,11 +46,20 @@ The lack of accurate demand forecasting can lead to misinformed purchasing and r
 3. Model Development: Use machine learning and time-series forecasting techniques to predict future demand and establish optimal stock levels for the business.
 
 4. Evaluation and Optimization: Evaluate the model’s performance using appropriate metrics, refine the model to improve accuracy, and provide actionable insights for stock management.
+
+## Expected Outcome:
+By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="dataset">Dataset</h2>
+# Dataset
 
-The dataset consists of sales data from the **SAP Business One USA demo database**. Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
+## Dataset Gathering
+
+The dataset consists of sales data from the **SAP Business One USA demo database**. 
+[csv file](notebooks/SalesData.csv)
+ 
+Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
 
 ```
 SELECT 
@@ -108,9 +108,7 @@ ORDER BY T0."DocNum"
 
 ```
 
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<h2 id="datadictionary">Data Dictionary</h2>
+## Data Dictionary
 
 | Column            | Description                                                                                         | Table   |
 |-------------------|-----------------------------------------------------------------------------------------------------|---------|
@@ -145,19 +143,24 @@ ORDER BY T0."DocNum"
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="fetureengineering">Feature Engineering</h2>
-The key variables used in this model are:
-
+# Feature Engineering
+EMPTY
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="modelingapproach">Modeling Approach</h2>
+# Modeling Approach
 
 EMPTY
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="howrunproject">How to Run the Project</h2>
+# Future Enhancements
+
+EMPTY
+
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+ # How to Run the Project
 1. Clone this repository.
 2. Install the required dependencies:
 ```
@@ -167,13 +170,7 @@ pip install -r requirements.txt
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="futureenhancements">Future Enhancements</h2>
-
-EMPTY
-
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<h2 id="conclusion">Conclusion</h2>
+# Conclusion
 
 EMPTY
 
