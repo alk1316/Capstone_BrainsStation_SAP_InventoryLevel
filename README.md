@@ -38,13 +38,13 @@ By leveraging ten years of invoice data (2006-2016), we will analyze sales trend
 The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
 
 ## Objectives
-1. Data Exploration and Preprocessing: Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
+1. **Data Exploration and Preprocessing:** Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
 
-2. Sales Pattern Analysis: Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
+2. **Sales Pattern Analysis:** Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
 
-3. Model Development: Use machine learning and time-series forecasting techniques to predict future demand and establish optimal stock levels for the business.
+3. **Model Development:** Use machine learning and time-series forecasting techniques to predict future demand and establish optimal stock levels for the business.
 
-4. Evaluation and Optimization: Evaluate the model’s performance using appropriate metrics, refine the model to improve accuracy, and provide actionable insights for stock management.
+4. **Evaluation and Optimization:** Evaluate the model’s performance using appropriate metrics, refine the model to improve accuracy, and provide actionable insights for stock management.
 
 ## Expected Outcome:
 By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
