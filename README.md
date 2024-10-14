@@ -27,13 +27,12 @@
   </details>
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<h2 id="projectoverview">Project Overview</h2>
+<h1 id="projectoverview">Project Overview</h1>
 This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
 
 By leveraging ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
 
 By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="problemstatement">Problem Statement</h2>
@@ -41,6 +40,7 @@ Efficient inventory management is a challenge for many businesses, as maintainin
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <h2 id="objectives">Objectives</h2>
+
 1. Data Exploration and Preprocessing: Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
 
 2. Sales Pattern Analysis: Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
