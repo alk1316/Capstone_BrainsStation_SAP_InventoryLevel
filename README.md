@@ -10,7 +10,7 @@
 </div>
 <br/>
 
-1. [Project Overview](#projectoverview)
+1. [Project Overview](#project-overview)
 
 <h2>Index</h2>
   <ol>
