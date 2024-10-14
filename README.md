@@ -14,7 +14,7 @@
 
 <h2>Index</h2>
   <ol>
-    <li><a href="#projectoverview">Project Overview</a></li>
+    <li><a href="#projectoverview">project-overview</a></li>
         <li><a href="#projectcontext">Context</a></li>
     <li><a href="#problemstatement">Problem Statement</a></li>
     <li><a href="#objectives">Objectives</a></li>
