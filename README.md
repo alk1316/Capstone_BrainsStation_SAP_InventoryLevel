@@ -10,9 +10,10 @@
 </div>
 <br/>
 
-# Indice
+# Table of Contents
 1. [Project Overview](#project-overview)
     - [Introduction](#introduction)
+    - [Business Case](#business-case)
     - [Problem](#problem)
     - [Objectives](#objectives)
     - [Expected Outcome](#expected-outcome) 
@@ -32,7 +33,10 @@ Efficient inventory management is a challenge for many businesses, as maintainin
 
 This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
 
-By leveraging ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
+By leveraging SAP Business One USA demo database ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
+
+## Business Case
+OEC Computers is a company located in the United States, specializing in the purchase and distribution of technological products. With a solid track record in the market, OEC has successfully expanded its operations nationally, as well as to markets in Canada and Europe. Over the years, the company has accumulated sales data from 2006 to 2016, which represents a valuable source of information for understanding market trends and product demand.
 
 ## Problem
 The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
@@ -56,6 +60,8 @@ By the end of the project, we expect to create a predictive tool that will enabl
 
 The dataset consists of sales data from the **SAP Business One USA demo database**. 
 [csv file](notebooks/SalesData.csv)
+
+
  
 Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
 
