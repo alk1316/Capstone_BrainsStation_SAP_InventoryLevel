@@ -109,7 +109,8 @@ INNER JOIN "OITB" T7 ON T3."ItmsGrpCod" = T7."ItmsGrpCod"
 
 WHERE 
     T0."DocType" = 'I' -- Only Item Invoices
-    AND (T0."DocDate" >= '20060101' AND T0."DocDate" <= '20161231') -- Range of data provided by SAP in DEMO DB
+	AND T0."CANCELED"='N'
+    AND T3."InvntItem"='Y'
 ORDER BY T0."DocNum"
 
 ```
