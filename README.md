@@ -6,7 +6,6 @@
 <br/>
 <div><img src="/notebooks/Assets/img/BrainStation_Main_Logo.png" width=""></div>
 <br/>
-<div><img src="/notebooks/Assets/img/SAPBusinessOne_Logo.png" width=""></div>
 </div>
 <br/>
 
@@ -20,9 +19,13 @@
 2. [Dataset](#dataset)
     - [Dataset Gathering](#dataset-gathering) 
     - [Data Dictionary](#data-dictionary) 
-3. [Feature Engineering](#feature-engineering)
+3. [Exploration and Preprocessing](#exploration-and-preprocessing)
+    - [Exploratory Data Analysis)](#exploratory-data-analysis)
 4. [Modeling Approach](#modeling-approach)
-5. [How to Run the Project](#how-to-run-the-project)
+    - [Projected Inventory Based on Averages](#avg) 
+    - [Projected Inventory Linear Regression](#linear) 
+    - [Projected Inventory Decision Tree](#tree) 
+5. [Model Development](#model-development)
 6. [Conclusion](#conclusion)
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -62,7 +65,6 @@ The dataset consists of sales data from the **SAP Business One USA demo database
 [csv file](notebooks/SalesData.csv)
 
 
- 
 Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
 
 ```
@@ -87,7 +89,7 @@ SELECT
     T1."ItemCode", -- Item Code
     T3."ItmsGrpCod", -- Item Group Code
     T7."ItmsGrpNam", -- Item Group Name
-    T1."Dscription", -- Item Description
+    T3."ItemName", -- Item Description
     T1."Quantity", -- Quantity sold
     T1."WhsCode", -- Warehouse code
     T1."StockPrice", -- Cost of item in Invoice
@@ -136,7 +138,7 @@ ORDER BY T0."DocNum"
 | `T1."ItemCode"`   | Code that uniquely identifies the item being sold, as registered in the inventory system.            | INV1    |
 | `T3."ItmsGrpCod"` | Code representing the item group, categorizing items into different segments (e.g., electronics, clothing, etc.). | OITM    |
 | `T7."ItmsGrpNam"` | Descriptive name of the item group, providing a human-readable label for the item group code.        | OITB    |
-| `T1."Dscription"` | Description of the item as it appears on the invoice, typically containing the item’s full name and additional details. | INV1    |
+| `T1."ItemName"` | Description of the item, typically containing the item’s full name and additional details. | OITM    |
 | `T1."Quantity"`   | Number of units sold of the item. Represents the quantity of the product included in the invoice.     | INV1    |
 | `T1."WhsCode"`    | Code representing the warehouse from which the item is being shipped or managed. Helps track inventory across multiple locations. | INV1    |
 | `T1."StockPrice"` | Cost of the item at the time of the invoice, based on stock valuation methods (e.g., FIFO, LIFO), used for cost analysis. | INV1    |
@@ -147,30 +149,67 @@ ORDER BY T0."DocNum"
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 3. Feature Engineering
-EMPTY
+# 3. Exploration and Preprocessing
+
+In this section, we will proceed with the initial data cleaning process, converting date data to datetime format, transforming object data into numerical values, removing any leading or trailing white spaces, and handling missing values if necessary.
+
+Afterward, we will conduct an exploratory data analysis to understand the distribution of the data, sales trends, top-selling products, and more.
+
+By the end of this section, we will have a clearer understanding of the data and which information can be used for our purposes.
+
+## Exploratory Data Analysis
+
+As part of the Data Exploration, the following information is analyzed:
+
+- Sales Over Time Analysis
+
+- Customer Analysis
+
+    - Total sales per customer
+    - Total sales per customer group
+    - Sales evolution over time per customer
+
+- Product Analysis
+
+    - Top-selling products by total sales amount
+    - Top-selling products by quantity sold
+    - Sales distribution by product group
+    - Temporal trends by product and total sales amount
+
+- Correlation Analysis
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # 4. Modeling Approach
 
-EMPTY
+With the goal of projecting the total inventory for the upcoming year 2017, the decision has been made to focus on the top 5 best-selling products based on the quantity sold.
+
+The variables to be used are reviewed, with the dependent variable being the quantity to be sold, and the independent variable being the years.
+
+We will apply the following approaches:
+
+Projections based on statistical calculations:
+
+Simple average calculation
+Weighted average calculation
+Linear Regression:
+
+Projecting 2017 sales using linear regression, where the independent variable is the years, and the dependent variable is the quantities sold.
+Decision Tree:
+
+Utilizing this model to predict 2017 sales and compare it with the previous models.
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 5. Future Enhancements
+# 5. Model Development
 
-EMPTY
+We will improve the projection models by breaking down the years into months, and to be more precise, we will focus on projecting sales for the first quarter of 2017.
+
+Additionally, we will apply an ARIMA model to compare the differences in the projections.
+
+Finally, we will perform an unsupervised model on the entire original dataset to gain further insights.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
- # 6. How to Run the Project
-1. Clone this repository.
-2. Install the required dependencies:
-```
-pip install -r requirements.txt
-```
-3. Execute the notebook or script to run the model
- <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-# 7. Conclusion
+# 6. Conclusion
 
 EMPTY
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
