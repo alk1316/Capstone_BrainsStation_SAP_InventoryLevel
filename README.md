@@ -187,14 +187,16 @@ The variables to be used are reviewed, with the dependent variable being the qua
 
 We will apply the following approaches:
 
-Projections based on statistical calculations:
+- Projections based on statistical calculations:
 
-Simple average calculation
-Weighted average calculation
-Linear Regression:
+    - Simple average calculation
+    - Weighted average calculation
+
+- Linear Regression:
 
 Projecting 2017 sales using linear regression, where the independent variable is the years, and the dependent variable is the quantities sold.
-Decision Tree:
+
+- Decision Tree:
 
 Utilizing this model to predict 2017 sales and compare it with the previous models.
 
