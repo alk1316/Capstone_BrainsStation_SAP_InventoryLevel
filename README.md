@@ -34,17 +34,50 @@
 ## Introduction
 Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
 
-This project aims to develop a predictive model to optimize stock levels using historical sales data from SAP Business One. Efficient inventory management is crucial for businesses to meet customer demand while minimizing holding costs and avoiding overstock or stockouts.
+This project aims to answer the following two questions:
 
-By leveraging SAP Business One USA demo database ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
+ 1. **What is the average purchase time for each customer?** With this information, we can estimate when the customer will make their next purchase.
+ 2. **What is the average purchase quantity of the items?** This information allows us to anticipate the inventory quantities needed to cover future customer orders.
+
+## Project Motivation
+
+This is a real work case:
+
+At work a customer required a report (query) to calculate the time and quantity products to be purchase for each client.
+
+Considering that a simple calculation of average purchase times and quantities is not sufficient, the idea is to apply a more efficient model to predict this information.
+
+Although a simple calculation was requested at work, it raised the question of whether there is a way to obtain this information using a machine learning predictive model. This became the main motivation for the project: to answer the two previously mentioned questions, which represent a real business requirement.
+
+## The Opportunity
+
+A data scientist should be capable of tackling any problem where data serves as the primary resource for answering key questions.
+
+This project represents a personal opportunity to apply the knowledge gained during the Bootcamp to a real-world scenario, and it aims to identify ways to address a critical issue in the business world. By leveraging business data, the goal is to improve decision-making related to inventory quantities, sales information, and purchasing trends.
+
+As such, this project is both a personal growth opportunity and a chance to propose a solution that businesses genuinely need.
 
 ## Business Case
 
+For security reasons, the company's name is omitted.
+
+However a brief information of the company:
+
+The company is located in the USA and specializes in the manufacturing and printing of foodservice products.
+
+Its main lines of business include: napkins, cups, bags, and TechnoLiners.
+
+<br/>
+<div><img src="/notebooks/Assets/img/BusinessLines.JPG" width=""></div>
+<br/>
+</div>
+
 
 ## Problem
-The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
+The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain and affecting the commercial relationship with the client.
 
 ## Objectives
+
 1. **Data Exploration and Preprocessing:** Clean and prepare the dataset, ensuring that it is suitable for predictive analysis by addressing missing data, inconsistencies, and outliers.
 
 2. **Sales Pattern Analysis:** Perform Exploratory Data Analysis (EDA) to identify patterns, in sales, which will help in understanding demand behavior.
@@ -54,15 +87,22 @@ The lack of accurate demand forecasting can lead to misinformed purchasing and r
 4. **Evaluation and Optimization:** Evaluate the model’s performance using appropriate metrics, refine the model to improve accuracy, and provide actionable insights for stock management.
 
 ## Expected Outcome:
-By the end of the project, we expect to create a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency. The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
+By the end of the project, we expect to answer the two main questions:
+ 1. **What is the average purchase time for each customer?**
+ 2. **What is the average purchase quantity of the items?**
+
+By creating a predictive tool that will enable the business to optimize its inventory levels, reduce costs, and improve overall supply chain efficiency.
+
+The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # 2. Dataset
 
 ## Dataset Gathering
 
-The dataset consists of sales 
+Since the dataset to be used contains real company information, it cannot be shared publicly.
 
+The data was extracted directly from the client's ERP system using the following query, which pulls all sales transaction information, resulting in a total of 16,724 rows and 28 columns.
 
 Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
 
@@ -149,15 +189,20 @@ ORDER BY T0."DocNum"
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 3. Exploration and Preprocessing
+
+# Project Roadmap
+
+# 1. Data Collection
+
+Retrieve the necessary sales information to answer the two key questions of this project. A database query was used to extract sales data from customer's ERP SAP, including invoice number, customer, purchase date, items purchased, quantities, prices, and totals, as well as additional related information that can be used for other types of business analysis.
+
+# 2. Cleaning and Preprocessing
 
 In this section, we will proceed with the initial data cleaning process, converting date data to datetime format, transforming object data into numerical values, removing any leading or trailing white spaces, and handling missing values if necessary.
 
-Afterward, we will conduct an exploratory data analysis to understand the distribution of the data, sales trends, top-selling products, and more.
-
 By the end of this section, we will have a clearer understanding of the data and which information can be used for our purposes.
 
-## Exploratory Data Analysis
+# 3. Exploratory Data Analysis
 
 As part of the Data Exploration, the following information is analyzed:
 
@@ -171,47 +216,92 @@ As part of the Data Exploration, the following information is analyzed:
 
 - Product Analysis
 
-    - Top-selling products by total sales amount
-    - Top-selling products by quantity sold
+    - Top-selling products by total amount an quantity
     - Sales distribution by product group
     - Temporal trends by product and total sales amount
 
 - Correlation Analysis
+
+At the end of this analysis, we will focus our predictive model exclusively on the Top 5 customers and their most purchased top product.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 4. Modeling Approach
+# 4. Model Selection
 
-With the goal of projecting the total inventory for the upcoming year 2017, the decision has been made to focus on the top 5 best-selling products based on the quantity sold.
+With the goal of answering our two questions:
 
-The variables to be used are reviewed, with the dependent variable being the quantity to be sold, and the independent variable being the years.
+ 1. What is the estimate purchase time for each customer?
+ 2. What is the estimate purchase quantity of the items?
 
 We will apply the following approaches:
 
 - Projections based on statistical calculations:
 
-    - Simple average calculation
-    - Weighted average calculation
+    - Simple average calculation of the purchased time by customer
+    - Simple average calculation of the purchased time by customer and quantities per product
 
 - Linear Regression:
+Task: Split the dataset into training, validation, and test sets
+Objective: Train and fine-tune models to predict estimated purchase time per every customer.
 
-Projecting 2017 sales using linear regression, where the independent variable is the years, and the dependent variable is the quantities sold.
+For the linear regression, we will start with just two independent variables, quantity and price, to predict our dependent variable, 'days_between_purchase'.
 
-- Decision Tree:
 
-Utilizing this model to predict 2017 sales and compare it with the previous models.
-
+- ARIMA Mpdel:
+With the aim of improving the forecast, we decided to apply a time series model, ARIMA, which is ideal for this type of case where detecting seasonality and trend patterns is essential.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 5. Model Development
+# 5. Model Evaluation
+Task: Assess the performance of the trained models using validation data. Evaluate models based on Mean Squared Error (MSE) y R2
 
-We will improve the projection models by breaking down the years into months, and to be more precise, we will focus on projecting sales for the first quarter of 2017.
+Objective: Identify the most effective model and understand its strengths and limitations, making adjustments as necessary.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Additionally, we will apply an ARIMA model to compare the differences in the projections.
+# 6. Model Deployment
 
-Finally, we will perform an unsupervised model on the entire original dataset to gain further insights.
+Task: Deploy the final model to make predictions on unseen test data, and expand the information for more clients and products, to evaluate the behavior of the model.
+
+Objective: Provide actionable insights to stakeholders and continue monitoring model performance in real-world scenarios, making updates as needed.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 6. Conclusion
+
+# 7. Repository
+
+* `model`
+    - `joblib` dump of final model(s)
+
+* `notebooks`
+    - contains all final notebooks involved in the project
+
+* `docs`
+    - contains final report, presentations which summarize the project
+
+* `references`
+    - contains papers / tutorials used in the project
+
+* `src`
+    - Contains the project source code (refactored from the notebooks)
+
+* `.gitignore`
+    - Part of Git, includes files and folders to be ignored by Git version control
+
+* `conda.yml`
+    - Conda environment specification
+
+* `README.md`
+    - Project landing page (this page)
+
+* `LICENSE`
+    - Project license
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+# 8. Learnings
+
+# 9. Conclusion
+
+EMPTY
+ <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+ # 10. Next Steps
 
 EMPTY
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
