@@ -39,7 +39,7 @@ This project aims to develop a predictive model to optimize stock levels using h
 By leveraging SAP Business One USA demo database ten years of invoice data (2006-2016), we will analyze sales trends, customer purchasing behavior, and product demand to forecast optimal stock levels for each item.
 
 ## Business Case
-OEC Computers is a company located in the United States, specializing in the purchase and distribution of technological products. With a solid track record in the market, OEC has successfully expanded its operations nationally, as well as to markets in Canada and Europe. Over the years, the company has accumulated sales data from 2006 to 2016, which represents a valuable source of information for understanding market trends and product demand.
+
 
 ## Problem
 The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain.
