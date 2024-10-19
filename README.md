@@ -12,6 +12,8 @@
 # Table of Contents
 1. [Project Overview](#project-overview)
     - [Introduction](#introduction)
+    - [Project Motivation](#project-motivation)
+    - [The Opportunity](#the-opportunity)
     - [Business Case](#business-case)
     - [Problem](#problem)
     - [Objectives](#objectives)
@@ -19,17 +21,20 @@
 2. [Dataset](#dataset)
     - [Dataset Gathering](#dataset-gathering) 
     - [Data Dictionary](#data-dictionary) 
-3. [Exploration and Preprocessing](#exploration-and-preprocessing)
+3. [Project Roadmap](#project-roadmap)
+    - [Data Collection](#data-collection) 
+    - [Cleaning and Preprocessing](#cleaning-and-preprocessing) 
     - [Exploratory Data Analysis)](#exploratory-data-analysis)
-4. [Modeling Approach](#modeling-approach)
-    - [Projected Inventory Based on Averages](#avg) 
-    - [Projected Inventory Linear Regression](#linear) 
-    - [Projected Inventory Decision Tree](#tree) 
-5. [Model Development](#model-development)
-6. [Conclusion](#conclusion)
+    - [Model Selection)](#model-selection)
+    - [Model Evaluation)](#model-evaluation)
+    - [Model Deployment)](#model-deployment)
+    - [Repository)](#repository)
+    - [Learnings)](#learnings)
+    - [Conclusion)](#conclusion)
+    - [Next Steps)](#next-steps)
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 1. Project Overview
+# Project Overview
 
 ## Introduction
 Efficient inventory management is a challenge for many businesses, as maintaining the right stock levels is critical to balance supply and demand. Overstocking can lead to increased holding costs and wasted resources, while stockouts can result in lost sales, poor customer satisfaction, and potential damage to the company’s reputation.
@@ -96,7 +101,7 @@ By creating a predictive tool that will enable the business to optimize its inve
 The insights gained from this model will support data-driven decision-making and enhance the company’s ability to meet customer demands with more precision.
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# 2. Dataset
+# Dataset
 
 ## Dataset Gathering
 
