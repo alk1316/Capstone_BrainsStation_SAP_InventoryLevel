@@ -301,6 +301,12 @@ Objective: Provide actionable insights to stakeholders and continue monitoring m
 
 # 8. Learnings
 
+- **Managing DataFrames correctly** This is crucial, especially when creating new DataFrames that are related to others and used as filters. If the structure of any DataFrame is unintentionally altered, it can cause a cascade of issues, making error detection much more difficult. Therefore, it’s essential to carefully maintain the structure of each DataFrame and be aware of where and how it is being used. This helps ensure data integrity, reduces debugging time, and prevents unexpected problems in downstream analyses or models.
+
+- **Limitations of simple average calculation:** While calculating the average time between purchases by customer and product provides a general overview, it fails to capture important variations like seasonal changes or irregular purchases. This method does not account for non-linear or erratic behaviors, leading to less accurate predictions when buying patterns aren’t consistent.
+
+- **Importance of predictive variables:** Through Linear Regression, we found that quantity and price alone do not fully explain customer purchase behavior. The low R² (0.13) suggests that other factors, like seasonal patterns or customer-specific traits, may play a significant role.
+
 # 9. Conclusion
 
 EMPTY
