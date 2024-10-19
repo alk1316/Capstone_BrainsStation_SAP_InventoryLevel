@@ -61,8 +61,7 @@ By the end of the project, we expect to create a predictive tool that will enabl
 
 ## Dataset Gathering
 
-The dataset consists of sales data from the **SAP Business One USA demo database**. 
-[csv file](notebooks/SalesData.csv)
+The dataset consists of sales 
 
 
 Below is a query and table that describes the fields used in the invoice query, providing detailed information about each column, its purpose, and the table it originates from.
