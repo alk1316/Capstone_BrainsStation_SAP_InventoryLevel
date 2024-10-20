@@ -194,8 +194,12 @@ ORDER BY T0."DocNum"
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 # Project Roadmap
+
+<br/>
+<div><img src="/notebooks/Assets/img/RoadMap.JPG" width=""></div>
+<br/>
+</div>
 
 # 1. Data Collection
 
