@@ -393,7 +393,7 @@ There is no need to calculate a delta between the actual and projected values, a
 
 - **Importance of handling outliers before applying a predictive model:** When running linear regression, the R² improved as outliers were removed. Initially, the model had an R² of 0.13, but after addressing the outliers, it improved to an R² of 0.43.
 
--- **Testing the model with multiple variables:** Although the final linear regression model uses quantity and price to estimate purchase time, other variables were tested, such as product type, day, month, and year, to identify whether any time-related factors were more significant in each sale's timing.
+- **Testing the model with multiple variables:** Although the final linear regression model uses quantity and price to estimate purchase time, other variables were tested, such as product type, day, month, and year, to identify whether any time-related factors were more significant in each sale's timing.
 
 After evaluating each model, the simplest option provided the best result: This does not mean it cannot be improved by incorporating more variables, but it serves as a good starting point.
 
