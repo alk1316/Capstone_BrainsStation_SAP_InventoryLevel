@@ -321,10 +321,9 @@ As additional information, the average quantity purchased by this customer for t
 
 This will serve as input to **compare** the **average method** against the **time series** projections.
 
-<br/>
-<div><img src="/notebooks/Assets/img/ts-comp.JPG" width=""></div>
-<br/>
-</div>
+
+
+
 
 
 
