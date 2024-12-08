@@ -391,14 +391,39 @@ There is no need to calculate a delta between the actual and projected values, a
 
 - **Limitations of simple average calculation:** While calculating the average time between purchases by customer and product provides a general overview, it fails to capture important variations like seasonal changes or irregular purchases. This method does not account for non-linear or erratic behaviors, leading to less accurate predictions when buying patterns aren’t consistent.
 
-- **Importance of predictive variables:** Through Linear Regression, we found that quantity and price alone do not fully explain customer purchase behavior. The low R² (0.13) suggests that other factors, like seasonal patterns or customer-specific traits, may play a significant role.
+- **Importance of handling outliers before applying a predictive model:** When running linear regression, the R² improved as outliers were removed. Initially, the model had an R² of 0.13, but after addressing the outliers, it improved to an R² of 0.43.
+
+-- **Testing the model with multiple variables:** Although the final linear regression model uses quantity and price to estimate purchase time, other variables were tested, such as product type, day, month, and year, to identify whether any time-related factors were more significant in each sale's timing.
+
+After evaluating each model, the simplest option provided the best result: This does not mean it cannot be improved by incorporating more variables, but it serves as a good starting point.
+
+- **Time series decomposition:** The importance of decomposing time series to clearly identify trends, seasonality, and noise, enabling them to be treated independently.
+
+Removing potentially atypical values: Instead of removing them entirely, limits can be set, and winsorization can be applied.
+
+- **Model evaluation:** The importance of evaluating each model against actual values and determining the delta, as this provides insight into how one model compares to another.
 
 # 9. Conclusion
 
-EMPTY
+The two primary original questions:
+
+Estimated date of the next purchase.
+Estimated purchase quantities.
+
+These models establishes a baseline for data-driven decision-making, enabling the company to better plan operations and proactively address the needs of its key clients.
+
+1. **Simple Average Calculation:** We calculated the average number of days between each customer's purchases based on historical sales data.
+2. **Linear Regression:** A linear regression model was trained, achieving 43% accuracy in predicting estimated purchase times using quantities and prices as variables.
+3. **Time Series Analysis:** A time series model projected monthly sales quantities for 2024.
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
  # 10. Next Steps
 
-EMPTY
+- Improve each of the models presented evaluating new variables. 
+- Apply new models and compare them with the current ones like non-linear models. 
+- Enhance the time series models by applying ARIMA and SARIMA.
+- In the market there are specialized libraries to predict demand.  One of them is pymc-marketing https://github.com/pymc-labs/pymc-marketing  it would be and option to apply this models and compare the performance. 
+
+
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
