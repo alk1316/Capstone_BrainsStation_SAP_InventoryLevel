@@ -418,7 +418,7 @@ These models establishes a baseline for data-driven decision-making, enabling th
 
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
- # 10. Next Steps
+ # 10. Next Steps ➡️
 
 - Improve each of the models presented evaluating new variables. 
 - Apply new models and compare them with the current ones like non-linear models. 
