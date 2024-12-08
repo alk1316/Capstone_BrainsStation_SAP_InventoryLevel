@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-<h1>Prediction of Purchase Time and Quantity by Customer and Product 📊🚀</h1>
+<h1>📌💡 Prediction of Purchase Time and Quantity by Customer and Product 📊🚀</h1>
 <h2>BrainStation Capstone Project</h2>
 <br/>
 <div><img src="/notebooks/Assets/img/BrainStation_Main_Logo.png" width=""></div>
