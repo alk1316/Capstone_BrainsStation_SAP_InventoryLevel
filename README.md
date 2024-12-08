@@ -321,8 +321,21 @@ As additional information, the average quantity purchased by this customer for t
 
 This will serve as input to **compare** the **average method** against the **time series** projections.
 
+In the following table we can see the real values and the projected ones.
+
+<br/>
+<div><img src="/notebooks/Assets/img/ts-comp.JPG" width=""></div>
+<br/>
+</div>
 
 
+As can be seen from the actual values, there is a purchasing pattern of approximately 600 units every two months from September 2023 to October 2024.
+
+However, the time series does not capture this similar purchasing pattern, showing values spread across all months.
+
+The projection by time series is very close to the average but neither of them to the real values.
+
+There is no need to calculate a delta between the actual and projected values, as it is clearly evident that the time series adjustments are necessary to align with the actual values.
 
 
 
