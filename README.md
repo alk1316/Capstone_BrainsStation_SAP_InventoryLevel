@@ -78,7 +78,7 @@ Its main lines of business include: napkins, cups, bags, and TechnoLiners.
 </div>
 
 
-## Problem 🔧
+## Problem ❗⚠️
 The lack of accurate demand forecasting can lead to misinformed purchasing and replenishment decisions, creating inefficiencies in the supply chain and affecting the commercial relationship with the client.
 
 ## Objectives 📌
