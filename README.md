@@ -281,6 +281,29 @@ The results are as follows:
 
 **Days Between Purchase - Average vs Linear Regression**
 
+Performing a Linear Regression to predict days_between each purchase:
+
+<br/>
+<div><img src="/notebooks/Assets/img/LinearReg.JPG" width=""></div>
+<br/>
+</div>
+
+**R2 = 0.439:**
+
+The model now explains 43.9% of the variability in the dependent variable y = days_between using the independent variables X = Quantity, Price. 
+This means that almost 44% of the observed differences in days_between can be attributed to changes in Quantity and Price. 
+
+While it is not a perfect fit, it represents a significant improvement and demonstrates that Quantity and Price are relevant variables for explaining days_between.
+
+**MSE = 81.99:**
+
+The Mean Squared Error (MSE) measures the average squared error between the actual values and the predictions. A lower MSE value indicates that the model's predictions are closer to the real values. 
+
+Compared to the initial model where MSE were 350, this number has decreased, indicating better prediction accuracy.
+
+
+The following table shows a comparison between each method **Simple Average** and **Linear Regression** vs the real values.
+
 <br/>
 <div><img src="/notebooks/Assets/img/avg_lin.JPG" width=""></div>
 <br/>
@@ -337,20 +360,10 @@ The projection by time series is very close to the average but neither of them t
 
 There is no need to calculate a delta between the actual and projected values, as it is clearly evident that the time series adjustments are necessary to align with the actual values.
 
-
-
-
-
-
-
-
  <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 # 7. Repository
-
-* `model`
-    - `joblib` dump of final model(s)
 
 * `notebooks`
     - contains all final notebooks involved in the project
@@ -367,14 +380,9 @@ There is no need to calculate a delta between the actual and projected values, a
 * `.gitignore`
     - Part of Git, includes files and folders to be ignored by Git version control
 
-* `conda.yml`
-    - Conda environment specification
-
 * `README.md`
     - Project landing page (this page)
 
-* `LICENSE`
-    - Project license
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 # 8. Learnings
