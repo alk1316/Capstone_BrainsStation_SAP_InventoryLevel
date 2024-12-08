@@ -9,7 +9,7 @@
 </div>
 <br/>
 
-# Table of Contents 📖
+# Table of Contents 📝
 1. [Project Overview](#project-overview)
     - [Introduction](#introduction)
     - [Project Motivation](#project-motivation)
@@ -44,7 +44,7 @@ This project aims to answer the following two questions:
  1. **What is the average purchase time for each customer?** With this information, we can estimate when the customer will make their next purchase.
  2. **What is the average purchase quantity of the items?** This information allows us to anticipate the inventory quantities needed to cover future customer orders.
 
-## Project Motivation 
+## Project Motivation 💭
 
 This is a real work case:
 
@@ -54,7 +54,7 @@ Considering that a simple calculation of average purchase times and quantities i
 
 Although a simple calculation was requested at work, it raised the question of whether there is a way to obtain this information using a machine learning predictive model. This became the main motivation for the project: to answer the two previously mentioned questions, which represent a real business requirement.
 
-## The Opportunity
+## The Opportunity ✔️
 
 A data scientist should be capable of tackling any problem where data serves as the primary resource for answering key questions.
 
@@ -103,7 +103,7 @@ The insights gained from this model will support data-driven decision-making and
 
 # Dataset 🔢
 
-## Dataset Gathering
+## Dataset Gathering ⌨
 
 Since the dataset to be used contains real company information, it cannot be shared publicly.
 
@@ -159,7 +159,7 @@ ORDER BY T0."DocNum"
 
 ```
 
-## Data Dictionary
+## Data Dictionary 🔣
 
 | Column            | Description                                                                                         | Table   |
 |-------------------|-----------------------------------------------------------------------------------------------------|---------|
@@ -201,17 +201,17 @@ ORDER BY T0."DocNum"
 <br/>
 </div>
 
-# 1. Data Collection
+# 1. Data Collection 📚+🔺
 
 Retrieve the necessary sales information to answer the two key questions of this project. A database query was used to extract sales data from customer's ERP SAP, including invoice number, customer, purchase date, items purchased, quantities, prices, and totals, as well as additional related information that can be used for other types of business analysis.
 
-# 2. Cleaning and Preprocessing
+# 2. Cleaning and Preprocessing 👩🏻‍💻📓✍🏻💡
 
 In this section, we will proceed with the initial data cleaning process, converting date data to datetime format, transforming object data into numerical values, removing any leading or trailing white spaces, and handling missing values if necessary.
 
 By the end of this section, we will have a clearer understanding of the data and which information can be used for our purposes.
 
-# 3. Exploratory Data Analysis
+# 3. Exploratory Data Analysis 🕵
 
 As part of the Data Exploration, the following information is analyzed:
 
