@@ -324,7 +324,7 @@ This will serve as input to **compare** the **average method** against the **tim
 In the following table we can see the real values and the projected ones.
 
 <br/>
-<div><img src="/notebooks/Assets/img/ts-comp.JPG" width=""></div>
+<div><img src="/notebooks/Assets/img/ts_vsreal.JPG" width=""></div>
 <br/>
 </div>
 
