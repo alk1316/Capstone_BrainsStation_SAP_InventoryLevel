@@ -293,6 +293,39 @@ However, the difference is not very significant, as 13 records are more accurate
 
 **Quantities Forecast - Comparing Average vs Time Series with real Values for 2024**
 
+In the following charts we can observe the time serie decompised in following information:
+
+- Original: The original data presented in monthly values.
+- Trend: The trend component, isolated from seasonality.
+- Seasonality: This chart displays only the seasonal component. As we can see, there is significant variation in the temporal patterns.
+- Residual: Also known as noise, this represents external factors that cannot be controlled and affect the data's evolution.
+
+
+<br/>
+<div><img src="/notebooks/Assets/img/ts_decomp.JPG" width=""></div>
+<br/>
+</div>
+
+This graph shows the historical data and the sales projection for the analyzed item '215X178WHBDC23.0M'.
+The following table displays the projected values for each month that are expected to be purchased by the customer Bunzl.
+
+<br/>
+<div><img src="/notebooks/Assets/img/ts.JPG" width=""></div>
+<br/>
+</div>
+
+
+We can compare the projected values against the actual ones.
+
+As additional information, the average quantity purchased by this customer for the analyzed item is **350 units**.
+
+This will serve as input to **compare** the **average method** against the **time series** projections.
+
+<br/>
+<div><img src="/notebooks/Assets/img/ts-comp.JPG" width=""></div>
+<br/>
+</div>
+
 
 
 
