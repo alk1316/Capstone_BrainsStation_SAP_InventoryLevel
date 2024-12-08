@@ -313,6 +313,7 @@ The linear method calculation shows an advantage over the linear regression meth
 
 However, the difference is not very significant, as 13 records are more accurate with the linear regression method.
 
+**Time Series Evaluation**
 
 **Quantities Forecast - Comparing Average vs Time Series with real Values for 2024**
 
