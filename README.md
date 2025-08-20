@@ -155,7 +155,7 @@ WHERE
     T0."DocType" = 'I' -- Only Item Invoices
 	AND T0."CANCELED"='N'
     AND T3."InvntItem"='Y'
-ORDER BY T0."DocNum"
+ORDER BY T0."DocDate"
 
 ```
 
